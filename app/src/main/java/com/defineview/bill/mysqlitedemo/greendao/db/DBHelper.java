@@ -7,7 +7,8 @@ import com.defineview.bill.mysqlitedemo.greendao.gen.DaoMaster;
 
 /**
  * 数据库升级
- * 等待完善
+ * <p>
+ * 等待完善--暂时弃用
  */
 public class DBHelper extends DaoMaster.OpenHelper {
 

@@ -163,6 +163,13 @@ public class MigrationHelper {
         }
     }
 
+    /**
+     * 获取所有条目
+     *
+     * @param db
+     * @param tableName
+     * @return
+     */
     private static List<String> getColumns(Database db, String tableName) {
         List<String> columns = null;
         Cursor cursor = null;

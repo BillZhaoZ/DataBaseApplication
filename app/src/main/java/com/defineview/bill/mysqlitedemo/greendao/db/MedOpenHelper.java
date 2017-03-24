@@ -9,12 +9,12 @@ import com.defineview.bill.mysqlitedemo.greendao.gen.UserTwoDao;
 import org.greenrobot.greendao.database.Database;
 
 /**
- * 类名：HMROpenHelper
+ * 类名：MedOpenHelper
  * 类描述：用于数据库升级的工具类
  */
-public class HMROpenHelper extends DaoMaster.OpenHelper {
+public class MedOpenHelper extends DaoMaster.OpenHelper {
 
-    public HMROpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
+    public MedOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
         super(context, name, factory);
     }
 
