@@ -15,14 +15,14 @@
         android:id="@+id/tv_add_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="查询（一）"/>
+        android:text="查询（一）:Sql语句查询"/>
 
     <Button
         android:id="@+id/tv_add_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="查询（二）"/>
+        android:text="查询（二）：调用方法查询"/>
 
     <Button
         android:id="@+id/tv_add_3"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
         android:layout_marginTop="20dp"
-        android:text="查询（三）"/>
+        android:text="查询（三）：GreenDAO"/>
 
 
 </LinearLayout>

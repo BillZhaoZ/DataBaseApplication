@@ -1,6 +1,7 @@
 package com.defineview.bill.mysqlitedemo.greendao.manger;
 
-import com.defineview.bill.mysqlitedemo.greendao.gen.UserDao;
+import com.defineview.bill.mysqlitedemo.greendao.gen.UserOneDao;
+import com.defineview.bill.mysqlitedemo.greendao.gen.UserTwoDao;
 
 /**
  * 实体类管理
@@ -8,15 +9,26 @@ import com.defineview.bill.mysqlitedemo.greendao.gen.UserDao;
 public class EntityManager {
 
     private static EntityManager entityManager;
-    public UserDao userDao;
+    public UserOneDao userDaoOne;
+    public UserTwoDao userDao;
 
     /**
-     * 创建User表实例
+     * 创建User1表实例
      *
      * @return
      */
-    public UserDao getUserDao() {
-        userDao = DaoManager.getInstance().getSession().getUserDao();
+    public UserOneDao getUserOneDao() {
+        userDaoOne = DaoManager.getInstance().getSession().getUserOneDao();
+        return userDaoOne;
+    }
+
+    /**
+     * 创建User2表实例
+     *
+     * @return
+     */
+    public UserTwoDao getUserTwoDao() {
+        userDao = DaoManager.getInstance().getSession().getUserTwoDao();
         return userDao;
     }
 
