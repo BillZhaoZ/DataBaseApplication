@@ -1,4 +1,4 @@
-# Sqlite & GreenDAO Demo
+# Sqlite & GreenDAO 使用教程
 Android轻量级数据库Sqlite的使用（包含GreenDAO的简单使用、升级 ）
 
 ** Sqlite数据库 **
