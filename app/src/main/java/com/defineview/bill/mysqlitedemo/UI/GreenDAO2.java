@@ -107,7 +107,7 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
         try {
             String userName = et_userName.getText().toString().trim();
 
-            if (userName == null || userName.equals("")) {
+            if (userName.equals("")) {
                 ToastUtils.showShort(getInstances(), "添加为空！");
                 return;
             }
@@ -130,22 +130,28 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
      * 方法描述：根据姓名删除数据
      */
     private void deleteData() {
-
         String userName = et_deleteUserName.getText().toString().trim();
-        if (userName == null || userName.equals("")) {
 
-            ToastUtils.showShort(getInstances(), "输入为空！");
+        if (userName.equals("")) {
+            ToastUtils.showShort(getInstances(), "请输入要删除的姓名！");
             return;
         }
 
         List<UserTwo> listUser = queryDataByName(userName);
-        for (int i = 0; i < listUser.size(); i++) {
-            UserTwo user = listUser.get(i);
-            //根据Entity删除数据
-            userDaoTwo.delete(user);
 
-            //根据Id删除数据
-//        userDaowowo.deleteByKey(user.getId());
+        if (listUser == null || listUser.size() == 0) {
+            ToastUtils.showShort(getInstances(), "你输入的姓名不存在，请重新输入！");
+            return;
+        } else {
+
+            for (int i = 0; i < listUser.size(); i++) {
+                UserTwo user = listUser.get(i);
+                //根据Entity删除数据
+                userDaoTwo.delete(user);
+
+                //根据Id删除数据
+                // userDaowowo.deleteByKey(user.getId());
+            }
         }
 
         initData();
@@ -193,7 +199,7 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
         String preUserId = et_preUserId.getText().toString().trim();
         String afterUserName = et_afterUserName.getText().toString().trim();
 
-        if (preUserId == null || preUserId.equals("") || afterUserName == null || afterUserName.equals("")) {
+        if (preUserId.equals("") || afterUserName.equals("")) {
             ToastUtils.showShort(getInstances(), "输入为空！");
             return;
         }
