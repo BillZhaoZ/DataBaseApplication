@@ -7,82 +7,103 @@
               android:orientation="vertical"
               tools:context=".UI.GreenDAO2">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_add"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="添加"/>
+            >
 
-        <EditText
-            android:id="@+id/et_userName"
-            android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/et_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="请输入要添加的姓名"/>
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="添加"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/btn_add"
-            android:layout_toLeftOf="@+id/btn_add"
-            android:hint="请输入要添加的姓名"/>
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_deteleUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="根据姓名进行删除"/>
+
+            <Button
+                android:id="@+id/btn_deteleByName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentRight="true"
+                android:text="删除"/>
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_add"
-            android:text="删除全部"/>
+            android:layout_gravity="center_horizontal"
+            android:text="删除全部数据"/>
 
-        <Button
-            android:id="@+id/btn_deteleByName"
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/btn_delete"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/btn_add"
-            android:text="删除"/>
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/et_deteleUserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/btn_delete"
-            android:layout_toLeftOf="@+id/btn_deteleByName"
-            android:layout_toRightOf="@+id/btn_delete"
-            android:hint="根据姓名删除"/>
+            <EditText
+                android:id="@+id/et_preUserId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btn_update"
+                android:hint="需要更改的id"/>
 
-        <EditText
-            android:id="@+id/et_preUserId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/btn_update"
-            android:layout_below="@+id/btn_delete"
-            android:layout_toLeftOf="@+id/et_afterName"
-            android:hint="被更改id"/>
+            <EditText
+                android:id="@+id/et_afterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btn_update"
+                android:layout_toLeftOf="@+id/btn_update"
+                android:hint="姓名更改为"/>
 
-        <EditText
-            android:id="@+id/et_afterName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/btn_update"
-            android:layout_below="@+id/btn_delete"
-            android:layout_toLeftOf="@+id/btn_update"
-            android:hint="更改成姓名"/>
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="更改"/>
 
-        <Button
-            android:id="@+id/btn_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/btn_delete"
-            android:text="更改"/>
+        </RelativeLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <TextView
@@ -90,7 +111,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-
             android:text="Id"/>
 
         <TextView
@@ -109,13 +129,11 @@
 
     </LinearLayout>
 
-
     <ListView
         android:id="@+id/my_listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:tag="myLV">
-
     </ListView>
 
 </LinearLayout>

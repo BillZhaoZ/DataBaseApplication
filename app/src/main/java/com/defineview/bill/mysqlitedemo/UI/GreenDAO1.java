@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /***
- * 第一种
+ * 第一种(简易)
  */
 public class GreenDAO1 extends AppCompatActivity implements View.OnClickListener {
 

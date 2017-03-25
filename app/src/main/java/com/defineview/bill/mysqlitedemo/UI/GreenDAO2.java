@@ -19,7 +19,7 @@ import org.greenrobot.greendao.query.QueryBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.defineview.bill.mysqlitedemo.UI.MyApplication.getInstances;
+import static com.defineview.bill.mysqlitedemo.app.MyApplication.getInstances;
 
 /**
  * GreenDAO ---第二种
@@ -41,6 +41,17 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_green_dao2);
 
+        initView();
+
+        //初始化数据库
+        userDaoTwo = EntityManager.getInstance().getUserTwoDao();
+        initData();
+    }
+
+    /**
+     * 初始化
+     */
+    private void initView() {
         Button btnAdd = (Button) findViewById(R.id.btn_add);
         btnAdd.setOnClickListener(this);
         Button btnDelete = (Button) findViewById(R.id.btn_delete);
@@ -55,10 +66,6 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
         et_userName = (EditText) findViewById(R.id.et_userName);
         myListView = (ListView) findViewById(R.id.my_listView);
         et_deleteUserName = (EditText) findViewById(R.id.et_deteleUserName);
-
-        //初始化数据库
-        userDaoTwo = EntityManager.getInstance().getUserTwoDao();
-        initData();
     }
 
     /**
@@ -73,15 +80,19 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
             case R.id.btn_add:
                 addData();
                 break;
+
             case R.id.btn_delete:
                 deleteAllData();
                 break;
+
             case R.id.btn_update:
                 updateData();
                 break;
+
             case R.id.btn_deteleByName:
                 deleteData();
                 break;
@@ -210,7 +221,6 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
         } catch (Exception e) {
             return;
         }
-
-
     }
+
 }

@@ -1,10 +1,9 @@
-package com.defineview.bill.mysqlitedemo.UI;
+package com.defineview.bill.mysqlitedemo.app;
 
 import android.app.Application;
 
 /**
  * 通用的全局Application
- * Created by anye0 on 2016/7/24.
  */
 public class MyApplication extends Application {
 

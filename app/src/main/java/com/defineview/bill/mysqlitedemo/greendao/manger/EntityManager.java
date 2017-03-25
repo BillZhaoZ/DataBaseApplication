@@ -9,8 +9,6 @@ import com.defineview.bill.mysqlitedemo.greendao.gen.UserTwoDao;
 public class EntityManager {
 
     private static EntityManager entityManager;
-    public UserOneDao userDaoOne;
-    public UserTwoDao userDao;
 
     /**
      * 创建User1表实例
@@ -18,8 +16,7 @@ public class EntityManager {
      * @return
      */
     public UserOneDao getUserOneDao() {
-        userDaoOne = DaoManager.getInstance().getSession().getUserOneDao();
-        return userDaoOne;
+        return DaoManager.getInstance().getSession().getUserOneDao();
     }
 
     /**
@@ -28,8 +25,7 @@ public class EntityManager {
      * @return
      */
     public UserTwoDao getUserTwoDao() {
-        userDao = DaoManager.getInstance().getSession().getUserTwoDao();
-        return userDao;
+        return DaoManager.getInstance().getSession().getUserTwoDao();
     }
 
     /**

@@ -38,5 +38,4 @@ public class MedOpenHelper extends DaoMaster.OpenHelper {
         //操作数据库的更新
         MigrationHelper.migrate(db, UserTwoDao.class);
     }
-
 }
