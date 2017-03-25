@@ -29,6 +29,7 @@ public class UserTwoDao extends AbstractDao<UserTwo, Long> {
         public final static Property Name = new Property(2, String.class, "name", false, "userName");
         public final static Property AddTest = new Property(3, String.class, "addTest", false, "ADD_TEST");
         public final static Property AssTest2 = new Property(4, String.class, "assTest2", false, "ASS_TEST2");
+        public final static Property Sex = new Property(5, String.class, "sex", false, "SEX");
     };
 
 
@@ -48,7 +49,8 @@ public class UserTwoDao extends AbstractDao<UserTwo, Long> {
                 "\"KEY\" TEXT," + // 1: key
                 "\"userName\" TEXT NOT NULL ," + // 2: name
                 "\"ADD_TEST\" TEXT," + // 3: addTest
-                "\"ASS_TEST2\" TEXT);"); // 4: assTest2
+                "\"ASS_TEST2\" TEXT," + // 4: assTest2
+                "\"SEX\" TEXT);"); // 5: sex
         // Add Indexes
         db.execSQL("CREATE UNIQUE INDEX " + constraint + "KEY_INDEX ON USERS_TABLE" +
                 " (\"KEY\" ASC);");
@@ -86,6 +88,11 @@ public class UserTwoDao extends AbstractDao<UserTwo, Long> {
         if (assTest2 != null) {
             stmt.bindString(5, assTest2);
         }
+ 
+        String sex = entity.getSex();
+        if (sex != null) {
+            stmt.bindString(6, sex);
+        }
     }
 
     @Override
@@ -112,6 +119,11 @@ public class UserTwoDao extends AbstractDao<UserTwo, Long> {
         if (assTest2 != null) {
             stmt.bindString(5, assTest2);
         }
+ 
+        String sex = entity.getSex();
+        if (sex != null) {
+            stmt.bindString(6, sex);
+        }
     }
 
     @Override
@@ -126,7 +138,8 @@ public class UserTwoDao extends AbstractDao<UserTwo, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // key
             cursor.getString(offset + 2), // name
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // addTest
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // assTest2
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // assTest2
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // sex
         );
         return entity;
     }
@@ -138,6 +151,7 @@ public class UserTwoDao extends AbstractDao<UserTwo, Long> {
         entity.setName(cursor.getString(offset + 2));
         entity.setAddTest(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setAssTest2(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setSex(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
      }
     
     @Override

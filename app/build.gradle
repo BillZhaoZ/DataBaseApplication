@@ -34,7 +34,7 @@ buildscript {
 }
 
 greendao {
-    schemaVersion 1
+    schemaVersion 2
     daoPackage 'com.defineview.bill.mysqlitedemo.greendao.gen'
     targetGenDir 'src/main/java'
 }

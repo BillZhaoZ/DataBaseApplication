@@ -90,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
+
             android:text="Id"/>
 
         <TextView
@@ -99,6 +100,12 @@
             android:gravity="center_horizontal"
             android:text="姓名"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Addtest"/>
 
     </LinearLayout>
 
@@ -107,7 +114,6 @@
         android:id="@+id/my_listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:tag="myLV">
 
     </ListView>

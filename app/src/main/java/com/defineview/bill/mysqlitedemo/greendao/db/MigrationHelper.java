@@ -19,6 +19,7 @@ import java.util.List;
  * 类描述：用于数据库升级的工具类
  */
 public class MigrationHelper {
+
     /**
      * 调用升级方法
      *
@@ -68,6 +69,7 @@ public class MigrationHelper {
         StringBuilder query = new StringBuilder();
         query.append("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='").append(tableName).append("'");
         Cursor c = db.rawQuery(query.toString(), null);
+
         if (c.moveToNext()) {
             int count = c.getInt(0);
             if (count > 0) {
@@ -75,6 +77,7 @@ public class MigrationHelper {
             }
             return false;
         }
+
         return false;
     }
 
@@ -105,9 +108,11 @@ public class MigrationHelper {
      * dao class already define the sql exec method, so just invoke it
      */
     private static void reflectMethod(Database db, String methodName, boolean isExists, @NonNull Class<? extends AbstractDao<?, ?>>... daoClasses) {
+
         if (daoClasses.length < 1) {
             return;
         }
+
         try {
             for (Class cls : daoClasses) {
                 //根据方法名，找到声明的方法
@@ -130,14 +135,17 @@ public class MigrationHelper {
      * @param daoClasses
      */
     private static void restoreData(Database db, Class<? extends AbstractDao<?, ?>>... daoClasses) {
+
         for (int i = 0; i < daoClasses.length; i++) {
             DaoConfig daoConfig = new DaoConfig(db, daoClasses[i]);
             String tableName = daoConfig.tablename;
             String tempTableName = daoConfig.tablename.concat("_TEMP");
+
             if (!checkTable(db, tempTableName))
                 continue;
             // get all columns from tempTable, take careful to use the columns list
             List<String> columns = getColumns(db, tempTableName);
+
             //新表，临时表都包含的字段
             ArrayList<String> properties = new ArrayList<>(columns.size());
             for (int j = 0; j < daoConfig.properties.length; j++) {
@@ -146,6 +154,7 @@ public class MigrationHelper {
                     properties.add(columnName);
                 }
             }
+
             if (properties.size() > 0) {
                 final String columnSQL = TextUtils.join(",", properties);
 
@@ -157,6 +166,7 @@ public class MigrationHelper {
                 insertTableStringBuilder.append(" FROM ").append(tempTableName).append(";");
                 db.execSQL(insertTableStringBuilder.toString());
             }
+
             StringBuilder dropTableStringBuilder = new StringBuilder();
             dropTableStringBuilder.append("DROP TABLE ").append(tempTableName);
             db.execSQL(dropTableStringBuilder.toString());
@@ -173,6 +183,7 @@ public class MigrationHelper {
     private static List<String> getColumns(Database db, String tableName) {
         List<String> columns = null;
         Cursor cursor = null;
+
         try {
             cursor = db.rawQuery("SELECT * FROM " + tableName + " limit 0", null);
             if (null != cursor && cursor.getColumnCount() > 0) {
@@ -186,6 +197,7 @@ public class MigrationHelper {
             if (null == columns)
                 columns = new ArrayList<>();
         }
+
         return columns;
     }
 

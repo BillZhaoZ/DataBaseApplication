@@ -11,6 +11,7 @@ import com.defineview.bill.mysqlitedemo.R;
 import com.defineview.bill.mysqlitedemo.greendao.entity.UserTwo;
 import com.defineview.bill.mysqlitedemo.greendao.gen.UserTwoDao;
 import com.defineview.bill.mysqlitedemo.greendao.manger.DaoManager;
+import com.defineview.bill.mysqlitedemo.greendao.manger.EntityManager;
 import com.defineview.bill.mysqlitedemo.utils.ToastUtils;
 
 import org.greenrobot.greendao.query.QueryBuilder;
@@ -28,7 +29,7 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
     private ListView myListView;
     private DataAdapter myAdapter;
     private List<UserTwo> userList = new ArrayList<UserTwo>();
-    private UserTwoDao userDaowowo;
+    private UserTwoDao userDaoTwo;
 
     EditText et_userName;
     EditText et_deleteUserName;
@@ -56,10 +57,8 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
         et_deleteUserName = (EditText) findViewById(R.id.et_deteleUserName);
 
         //初始化数据库
-
-        userDaowowo = DaoManager.getInstance().getDaoSession().getUserTwoDao();
+        userDaoTwo = EntityManager.getInstance().getUserTwoDao();
         initData();
-
     }
 
     /**
@@ -93,7 +92,7 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
      * 方法名：addData()
      * 方法描述：增加数据
      */
-    void addData() {
+    private void addData() {
         try {
             String userName = et_userName.getText().toString().trim();
 
@@ -106,7 +105,7 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
             mUser1.setName(userName);
             mUser1.setAddTest("hello");
             mUser1.setAssTest2("hi");
-            userDaowowo.insert(mUser1);
+            userDaoTwo.insert(mUser1);
             initData();
 
             ToastUtils.showShort(getInstances(), "添加完成！");
@@ -119,7 +118,7 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
      * 方法名：deleteData()
      * 方法描述：根据姓名删除数据
      */
-    void deleteData() {
+    private void deleteData() {
 
         String userName = et_deleteUserName.getText().toString().trim();
         if (userName == null || userName.equals("")) {
@@ -132,7 +131,7 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
         for (int i = 0; i < listUser.size(); i++) {
             UserTwo user = listUser.get(i);
             //根据Entity删除数据
-            userDaowowo.delete(user);
+            userDaoTwo.delete(user);
 
             //根据Id删除数据
 //        userDaowowo.deleteByKey(user.getId());
@@ -146,8 +145,8 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
      * 方法名：deleteAllData()
      * 方法描述：删除所有数据
      */
-    void deleteAllData() {
-        userDaowowo.deleteAll();
+    private void deleteAllData() {
+        userDaoTwo.deleteAll();
         initData();
         ToastUtils.showShort(getInstances(), "删除完成！");
     }
@@ -156,10 +155,9 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
      * 方法名：queryData()
      * 方法描述：查询全部数据
      */
-    void queryData() {
-        userList = userDaowowo.loadAll();
+    private void queryData() {
+        userList = userDaoTwo.loadAll();
     }
-
 
     /**
      * 方法名：queryDataByName
@@ -168,7 +166,7 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
      * @param name 姓名
      */
     List<UserTwo> queryDataByName(String name) {
-        QueryBuilder qb = userDaowowo.queryBuilder();
+        QueryBuilder qb = userDaoTwo.queryBuilder();
         List<UserTwo> users = qb.where(UserTwoDao.Properties.Name.eq(name)).list();
         //查询姓名为小红且id为1的数据，并以id为升序排列
 //        List<UserTwo> users = qb.where(qb.and(userDaowowo.Properties.Name.eq("小红"),userDaowowo.Properties.Id.eq((long)1)))
@@ -180,7 +178,7 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
      * 方法名：updateData()
      * 方法描述：根据id更改数据
      */
-    void updateData() {
+    private void updateData() {
         String preUserId = et_preUserId.getText().toString().trim();
         String afterUserName = et_afterUserName.getText().toString().trim();
 
@@ -190,11 +188,11 @@ public class GreenDAO2 extends AppCompatActivity implements View.OnClickListener
         }
 
         Long userId = Long.parseLong(preUserId);
-        UserTwo findUser = userDaowowo.queryBuilder().where(UserTwoDao.Properties.Id.eq(userId)).build().unique();
+        UserTwo findUser = userDaoTwo.queryBuilder().where(UserTwoDao.Properties.Id.eq(userId)).build().unique();
 
         if (findUser != null) {
             findUser.setName(afterUserName);
-            userDaowowo.update(findUser);
+            userDaoTwo.update(findUser);
         }
 
         ToastUtils.showShort(getInstances(), "更改完成！");

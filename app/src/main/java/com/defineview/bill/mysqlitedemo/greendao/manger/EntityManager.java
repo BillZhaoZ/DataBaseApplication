@@ -4,7 +4,7 @@ import com.defineview.bill.mysqlitedemo.greendao.gen.UserOneDao;
 import com.defineview.bill.mysqlitedemo.greendao.gen.UserTwoDao;
 
 /**
- * 实体类管理
+ * 实体类管理（表格管理）
  */
 public class EntityManager {
 

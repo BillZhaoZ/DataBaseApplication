@@ -8,13 +8,15 @@ import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.Transient;
 import org.greenrobot.greendao.annotation.Generated;
 
-//以下所有参数重新设置后需MakeProject,重装APP或升级数据库
+/**
+ * 以下所有参数重新设置后需MakeProject,重装APP或升级数据库
+ */
 @Entity(
         //设置在数据库中的表名,默认为对应的Entity类名
         nameInDb = "USERS_TABLE",
 
         //设置表为动态表，具有更新、查询、删除方法
-//        active = true,
+        //active = true,
 
         //定义索引跨越的列
         indexes = {
@@ -24,7 +26,8 @@ import org.greenrobot.greendao.annotation.Generated;
 
         /*设置GREENDAO是否在数据库中创建数据表，默认创建。
          如果多个实体类映射为同一张表，或已手动创建完数据表，将此设置为false*/
-//        createInDb = false,
+
+        // createInDb = false,
 )
 
 public class UserTwo {
@@ -43,64 +46,74 @@ public class UserTwo {
     private String name;
     private String addTest;
     private String assTest2;
+    private String sex;
 
     //临时存储数据，不会被持久化
     @Transient
     private int tempUsageCount;
     //以下数据为MakeProject自动创建
 
-public String getAssTest2() {
+    public String getAssTest2() {
         return this.assTest2;
-}
+    }
 
-public void setAssTest2(String assTest2) {
+    public void setAssTest2(String assTest2) {
         this.assTest2 = assTest2;
-}
+    }
 
-public String getAddTest() {
+    public String getAddTest() {
         return this.addTest;
-}
+    }
 
-public void setAddTest(String addTest) {
+    public void setAddTest(String addTest) {
         this.addTest = addTest;
-}
+    }
 
-public String getName() {
+    public String getName() {
         return this.name;
-}
+    }
 
-public void setName(String name) {
+    public void setName(String name) {
         this.name = name;
-}
+    }
 
-public String getKey() {
+    public String getKey() {
         return this.key;
-}
+    }
 
-public void setKey(String key) {
+    public void setKey(String key) {
         this.key = key;
-}
+    }
 
-public Long getId() {
+    public Long getId() {
         return this.id;
-}
+    }
 
-public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
-}
+    }
 
-@Generated(hash = 1234771469)
-public UserTwo(Long id, String key, @NotNull String name, String addTest,
-                String assTest2) {
+    public String getSex() {
+        return this.sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    @Generated(hash = 138196810)
+    public UserTwo(Long id, String key, @NotNull String name, String addTest,
+            String assTest2, String sex) {
         this.id = id;
         this.key = key;
         this.name = name;
         this.addTest = addTest;
         this.assTest2 = assTest2;
-}
+        this.sex = sex;
+    }
 
-@Generated(hash = 1156005031)
-public UserTwo() {
-}
-    
+    @Generated(hash = 1156005031)
+    public UserTwo() {
+    }
+
 }

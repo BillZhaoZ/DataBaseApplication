@@ -19,11 +19,12 @@ import java.util.List;
  */
 public class DataAdapter extends BaseAdapter {
 
-    List<UserTwo> userList = new ArrayList<UserTwo>();
-    LayoutInflater layoutInflater;
+    private List<UserTwo> userList = new ArrayList<UserTwo>();
+    private LayoutInflater layoutInflater;
     ListView mylistView;
-    Context context;
-    ViewHolder viewHolder;
+
+    private Context context;
+    private ViewHolder viewHolder;
 
     public DataAdapter(List userList, Context context) {
         this.userList = userList;
@@ -55,6 +56,8 @@ public class DataAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             viewHolder.tv_id = (TextView) convertView.findViewById(R.id.tv_user_id);
             viewHolder.tv_name = (TextView) convertView.findViewById(R.id.tv_user_name);
+            viewHolder.tv_sex = (TextView) convertView.findViewById(R.id.tv_user_addest);
+
             convertView.setTag(viewHolder);
         }
 
@@ -63,6 +66,7 @@ public class DataAdapter extends BaseAdapter {
         UserTwo user = userList.get(position);
         viewHolder.tv_id.setText(String.valueOf(user.getId()));
         viewHolder.tv_name.setText(user.getName());
+        viewHolder.tv_sex.setText(user.getAddTest());
 
         return convertView;
     }

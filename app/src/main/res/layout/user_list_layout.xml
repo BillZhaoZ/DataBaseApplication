@@ -8,12 +8,21 @@
         android:id="@+id/tv_user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/tv_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/tv_user_addest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"/>
 
 </LinearLayout>

@@ -35,7 +35,6 @@ public class GreenDAO1 extends AppCompatActivity implements View.OnClickListener
         mUserOneDao = EntityManager.getInstance().getUserOneDao();
     }
 
-
     /**
      * 注册点击事件
      */
