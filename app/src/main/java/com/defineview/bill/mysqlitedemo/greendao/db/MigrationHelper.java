@@ -35,7 +35,6 @@ public class MigrationHelper {
         restoreData(db, daoClasses);
     }
 
-
     /**
      * 生成临时表，存储旧的表数据
      *
