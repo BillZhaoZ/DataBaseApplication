@@ -3,7 +3,7 @@ package com.defineview.bill.mysqlitedemo.greendao.manger;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.defineview.bill.mysqlitedemo.app.MyApplication;
-import com.defineview.bill.mysqlitedemo.greendao.db.DBHelper;
+import com.defineview.bill.mysqlitedemo.sqlite.DBHelper;
 import com.defineview.bill.mysqlitedemo.greendao.db.MedOpenHelper;
 import com.defineview.bill.mysqlitedemo.greendao.gen.DaoMaster;
 import com.defineview.bill.mysqlitedemo.greendao.gen.DaoSession;

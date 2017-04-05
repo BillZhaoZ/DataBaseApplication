@@ -1,4 +1,4 @@
-package com.defineview.bill.mysqlitedemo.greendao.db;
+package com.defineview.bill.mysqlitedemo.sqlite;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.defineview.bill.mysqlitedemo.R;
 import com.defineview.bill.mysqlitedemo.model.UserBean;
-import com.defineview.bill.mysqlitedemo.utils.UserInfoDbUtils;
+import com.defineview.bill.mysqlitedemo.sqlite.UserInfoDbUtils;
 
 public class QueryActivityOne extends AppCompatActivity implements View.OnClickListener {
 

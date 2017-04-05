@@ -5,12 +5,12 @@ sqLite数据库
 一、sqLite数据库的创建和升级；
 
      // 可在Application里面进行此操作  或者自定义一个管理类
-        MedOpenHelper mHelper = new MedOpenHelper(MyApplication.getInstances(), "notes-db", null);//为数据库升级封装过的使用方式
+        mHelper = new DBHelper(MyApplication.getInstances());
         db = mHelper.getWritableDatabase();
 
-     // 注意：该数据库连接属于 DaoMaster，所以多个 Session 指的是相同的数据库连接。
-        mDaoMaster = new DaoMaster(db);
-        mDaoSession = mDaoMaster.newSession();
+      // 注意：该数据库连接属于 DaoMaster，所以多个 Session 指的是相同的数据库连接。
+         mDaoMaster = new DaoMaster(db);
+         mDaoSession = mDaoMaster.newSession();
 
     /**
      * 类名：MedOpenHelper
@@ -49,6 +49,26 @@ sqLite数据库
 二、包含sqLite数据库的两种增删改查的方式；
 
   1、SQL语句
+
+     public class UserInfoOpenHelper extends SQLiteOpenHelper {
+
+         public UserInfoOpenHelper(Context context) {
+             super(context, "userInfo.db", null, 1);
+         }
+
+         @Override
+         public void onCreate(SQLiteDatabase db) {
+             db.execSQL("create table user (_id integer primary key autoincrement  ,name varchar(20),phone varchar(20))");
+         }
+
+         @Override
+         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+             //执行sql语句做表结构的修改   数据库版本也需要同时变更  才会起作用
+             // db.execSQL("alter table user add phone varchar(20)");
+
+             //System.out.println("旧版本:" + oldVersion + "新版本+" + newVersion);
+         }
+     }
 
      /**
       * sql语句查询

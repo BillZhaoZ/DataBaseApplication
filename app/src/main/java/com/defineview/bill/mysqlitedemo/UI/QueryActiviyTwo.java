@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.defineview.bill.mysqlitedemo.R;
 import com.defineview.bill.mysqlitedemo.model.UserBean2;
-import com.defineview.bill.mysqlitedemo.utils.UserInfoDbUtils2;
+import com.defineview.bill.mysqlitedemo.sqlite.UserInfoDbUtils2;
 
 public class QueryActiviyTwo extends AppCompatActivity implements View.OnClickListener {
 

@@ -1,4 +1,4 @@
-package com.defineview.bill.mysqlitedemo.utils;
+package com.defineview.bill.mysqlitedemo.sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.defineview.bill.mysqlitedemo.model.UserBean2;
+import com.defineview.bill.mysqlitedemo.utils.UserInfoOpenHelper2;
 
 import java.util.ArrayList;
 
