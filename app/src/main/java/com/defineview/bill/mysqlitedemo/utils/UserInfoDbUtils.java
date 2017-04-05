@@ -9,6 +9,7 @@ import com.defineview.bill.mysqlitedemo.model.UserBean;
 import java.util.ArrayList;
 
 /**
+ * sql语句查询
  * Created by Bill on 2017/3/18.
  */
 

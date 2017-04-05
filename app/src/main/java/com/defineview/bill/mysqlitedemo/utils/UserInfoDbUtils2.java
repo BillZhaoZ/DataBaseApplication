@@ -10,6 +10,7 @@ import com.defineview.bill.mysqlitedemo.model.UserBean2;
 import java.util.ArrayList;
 
 /**
+ * 调用方法查询
  * 数据库操作类
  */
 public class UserInfoDbUtils2 {
